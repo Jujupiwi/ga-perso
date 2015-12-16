@@ -1,0 +1,11 @@
+<div class="container" style="margin-top: 50px;">
+  <h1 class="pull-left">{{breadcrumb.infos.title}}</h1>
+  <ul class="pull-right breadcrumb">
+    <li ng-repeat="item in breadcrumb.infos.parents">
+      <a ui-sref="{{item.name}}">{{item.title}}</a>
+    </li>
+    <li class="active">
+      <span>{{breadcrumb.infos.title}}</span>
+    </li>
+  </ul>
+</div>

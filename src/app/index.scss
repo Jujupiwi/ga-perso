@@ -1,0 +1,23 @@
+@import "../../bower_components/bootswatch-scss/united/variables";
+@import "../../bower_components/bootswatch-scss/united/bootswatch";
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.copyright {
+  background: #3e4753 none repeat scroll 0 0;
+  border-top: 1px solid #777;
+  font-size: 14px;
+  color: white;
+  padding: 11px 0 7px;
+}
+.copyright a{
+  color: #fff;
+}
+
+// bower:scss
+// endbower
+
+// injector
+// endinjector
+
+.well {
+  padding: 5px;
+}

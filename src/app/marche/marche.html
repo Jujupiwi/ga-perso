@@ -1,0 +1,81 @@
+<form>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="fournisseur">Fournisseur</label>
+                <select id="fournisseur" class="form-control" ng-model="fournisseur">
+                    <option>Tous</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="groupeEntite">Groupe Entité</label>
+                <select id="groupeEntite" class="form-control">
+                    <option>Tous</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="entite">Entité</label>
+                <select id="entite" class="form-control">
+                    <option>Tous</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group checkbox">
+                <label class="checkbox-inline" for="inactif">
+                <input type="checkbox" id="inactif" value="option1"> Voir les marchés inactifs</label>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <table class="table table-striped table-wrap">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Groupe entité</th>
+            <th>entité</th>
+            <th>Fournisseur</th>
+            <th>Caractéristiques</th>
+            <th>Volume init</th>
+            <th>Prix</th>
+            <th>%Cmde</th>
+            <th>Suppr</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="marche in marches.marches track by $index">
+            <td>{{marche.nom}}</td>
+            <td>{{marche.dateDebut  | date: 'dd/MM/yyyy'}}</td>
+            <td>{{marche.dateFin  | date: 'dd/MM/yyyy'}}</td>
+            <td>{{marche.groupe}}</td>
+            <td>{{marche.entite}}</td>
+            <td>{{marche.fournisseur}}</td>
+            <td>{{marche.caracteristiques}}</td>
+            <td>{{marche.volume}}</td>
+            <td>{{marche.prix}}</td>
+            <td>{{marche.prctCmde}}</td>
+            <td>
+                <button class="btn btn-danger btn-xs" ng-click="endpoints.confirmDelete(endpoint)">
+                    <i class="fa fa-trash-o"></i> Supprimer
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+  <div class="form-group">
+    <div class="col-lg-12">
+      <button class="btn btn-primary" type="submit">Nouveau</button>
+      <button class="btn btn-success" type="reset">Exporter</button>
+      <button class="btn btn-danger" type="reset">Grille tarifaire</button>
+      <button class="btn btn-danger" type="reset">Prévisionnel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="row" style="margin-bottom: 100px">
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Paramètres généraux</legend>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="coeffMAD">Coefficient de MAD %</label>
+            <div class="col-lg-3">
+              <input type="text" placeholder="Coefficient de MAD en %" id="coeffMAD" class="form-control" ng-model="param.params.coefMAD">
+            </div>
+            <label class="col-lg-2 control-label" for="contact">Contact</label>
+            <div class="col-lg-3">
+              <input type="text" placeholder="Contact" id="contact" class="form-control" ng-model="param.params.contact">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="qtePrix">Quantité au prix</label>
+            <div class="col-lg-3">
+              <input type="text" placeholder="Quantité au prix" id="qtePrix" class="form-control" ng-model="param.params.quantitePrix">
+            </div>
+            <label class="col-lg-2 control-label" for="matricule">Matricule</label>
+            <div class="col-lg-3">
+              <input type="text" placeholder="Matricule" id="matricule" class="form-control" ng-model="param.params.matricule">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="delaiConservation">Délai conservation données</label>
+            <div class="col-lg-3">
+              <input type="text" placeholder="Délai conservation données" id="delaiConservation" class="form-control" ng-model="param.params.delaiCsvDonnee">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Documents</legend>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="grilleTarifaire">Grille tarifaire</label>
+            <div class="col-lg-4">
+              <input id="grilleTarifaire" disabled type="file" class="file">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="prevProd">Prévisionnel production</label>
+            <div class="col-lg-4">
+              <input type="file" id="prevProd" disabled class="file">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="well bs-component">
+        <form class="form-horizontal">
+          <fieldset>
+            <legend>Paramètres d'alerte</legend>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" for="seuilStockUsine">Seuil de stock usine</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Seuil de stock usine" id="seuilStockUsine" class="form-control" ng-model="param.params.seuilStockUsine">
+              </div>
+              <label class="col-lg-3 control-label" for="seuilStockCourant">Seuil de stock courant</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Seuil de stock courant" id="seuilStockCourant" class="form-control" ng-model="param.params.seuilStockCourant">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" for="qtePrix">Délai envoi commande</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Délai envoi commande" id="de" class="form-control" ng-model="param.params.delaiCmdeNonAccusee">
+              </div>
+              <label class="col-lg-3 control-label" for="seuilSensibilite">Seuil de sensibilité des alertes de stock papeterie</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Seuil sensibilité" id="seuilSensibilite" class="form-control" ng-model="param.params.seuilStockPapeterie">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" for="delaiEnvoiAR">Délai envoi d'un A/R par le fournisseur</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Délai envoi d'un A/R par le fournisseur" id="delaiEnvoiAR" class="form-control" ng-model="param.params.delaiCmdeNonEnvoyee">
+              </div>
+              <label class="col-lg-3 control-label" for="delaiTraitementMAD">Délai de traitement d'une MAD</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Délai de traitement d'une MAD" id="delaiTraitementMAD" class="form-control" ng-model="param.params.delaiMADRetard">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label" for="delaiTraitementLiv">Délai de traitement d'une livraison</label>
+              <div class="col-lg-3">
+                <input type="text" placeholder="Délai de traitement d'une livraison" id="delaiTraitementLiv" class="form-control" ng-model="param.params.delaiLivraisonEnAttente">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Interface</legend>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="derniereExecBatchConso">Date de dernière exécution du batch conso</label>
+            <div class="col-lg-3">
+              <input type="text" disabled placeholder="Date batch conso" id="derniereExecBatchConso" class="form-control" ng-model="param.params.dateDebutBatchConso">
+            </div>
+            <label class="col-lg-3 control-label" for="derniereExecBatchAXCommande">Date de dernière exécution du batch AX commande</label>
+            <div class="col-lg-3">
+              <input type="text" disabled placeholder="Date batch AX commande" id="derniereExecBatchAXCommande" class="form-control" ng-model="param.params.dateExecAxCmd">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" for="derniereExecBatchAXReception">Délai de dernière exécution du batch AX réception</label>
+            <div class="col-lg-3">
+              <input type="text" disabled placeholder="Date batch AX réception" id="derniereExecBatchAXReception" class="form-control" ng-model="param.params.dateExecAxRecep">
+            </div>
+            <label class="col-lg-3 control-label" for="derniereExecBatchAXStock">Délai de dernière exécution du batch AX stock</label>
+            <div class="col-lg-3">
+              <input type="text" disabled placeholder="Date batch AX stock" id="derniereExecBatchAXStock" class="form-control" ng-model="param.params.dateExecAxStock">
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-12">
+        <button class="btn btn-primary" type="submit">Valider</button>
+        <button class="btn btn-default" type="reset">Annuler</button>
+      </div>
+    </div>
+  </form>
+</div>

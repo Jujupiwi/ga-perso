@@ -1,0 +1,28 @@
+{
+  "name": "ga",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-touch": "~1.4.7",
+    "angular-sanitize": "~1.4.7",
+    "jquery": "~2.1.1",
+    "angular": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-messages": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.14.1",
+    "font-awesome": "~4.3.0",
+    "bootstrap-sass-official": "~3.3.1",
+    "angular-toastr": "~1.5.0",
+    "restangular": "~1.5.1",
+    "spinkit": "~1.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.7"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1",
+    "angular": "~1.4.7"
+  }
+}

@@ -1,0 +1,81 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img alt="Brand" style="margin-top: -32px;" src="assets/images/sopra-logo.png">
+    </a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <ul class="nav navbar-nav">
+      <li ui-sref-active="active">
+        <a ui-sref="main.home"><i class="fa fa-home"></i> Accueil</a>
+      </li>
+      <li ui-sref-active="active"><a ui-sref="main.marche">Marché</a></li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a class="dropdown-toggle" dropdown-toggle>Commande <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a ui-sref="main.cmdsupport">Support</a></li>
+          <li><a ui-sref="main.cmdpapeterie">Papetterie</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Mise à disposition <span class="caret"></span></a>
+        <ul class="dropdown-menu" dropdown-menu role="menu">
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Papetterie</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a href="#" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Livraison <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Papetterie</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a href="#" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Finance <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Facturation</a></li>
+          <li><a href="#">Ajustement</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a href="#" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Rapport <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Export des marchés cartes</a></li>
+          <li><a href="#">Export des commandes de support</a></li>
+          <li><a href="#">Export des commandes de papeterie</a></li>
+          <li><a href="#">Export des los SPI</a></li>
+          <li><a href="#">Export des MAD de papeterie</a></li>
+          <li><a href="#">Export des livraisons de support</a></li>
+          <li><a href="#">Export des livraisons de papeterie</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a href="#" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Stock <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Stock papeterie</a></li>
+          <li><a href="#">Arrêté comptable</a></li>
+          <li><a href="#">Conso moyenne papeterie</a></li>
+        </ul>
+      </li>
+      <li ui-sref-active="active" class="dropdown" dropdown>
+        <a href="#" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">Administration <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a ui-sref="main.param">Paramétrage papeterie</a></li>
+          <li><a href="#">Paramètres alerte support</a></li>
+          <li><a href="#">Table de référence</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
+      <li><a href="#"><i class="fa fa-user"></i> admin</a></li>
+    </ul>
+  </div>
+</nav>
