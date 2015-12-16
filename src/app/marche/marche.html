@@ -54,11 +54,11 @@
             <td>{{marche.nom}}</td>
             <td>{{marche.dateDebut  | date: 'dd/MM/yyyy'}}</td>
             <td>{{marche.dateFin  | date: 'dd/MM/yyyy'}}</td>
-            <td>{{marche.groupe}}</td>
-            <td>{{marche.entite}}</td>
-            <td>{{marche.fournisseur}}</td>
-            <td>{{marche.caracteristiques}}</td>
-            <td>{{marche.volume}}</td>
+            <td>{{marche.groupe.libelle}}</td>
+            <td>{{marche.entite.libelle}}</td>
+            <td>{{marche.fournisseur.libelle}}</td>
+            <td><span ng-repeat="carac in marche.listeCaracteristique track by $index">{{carac.libelle }},</span></td>
+            <td>{{marche.quantite}}</td>
             <td>{{marche.prix}}</td>
             <td>{{marche.prctCmde}}</td>
             <td>
