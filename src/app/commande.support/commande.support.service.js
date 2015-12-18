@@ -6,15 +6,16 @@
     var cmdsupports = Restangular.all('cmdsupports');
     return {
       list: list,
+      listFirst: listFirst,
       one: one
     };
 
     function list() {
-      var deferred = $q.defer();
-      cmdsupports.getList().then(function (data) {
-        deferred.resolve(data);
-      });
-      return deferred.promise;
+      return cmdsupports.getList();
+    }
+
+    function listFirst() {
+      return cmdsupports.customGETLIST('listfirst');
     }
 
     function one(id) {

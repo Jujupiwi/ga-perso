@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="fournisseur">Numéro Commande</label>
-  <input type="text" id="fournisseur" class="form-control" ng-model="mysearch.id">
+  <input type="text" id="fournisseur" class="form-control" ng-model="mysearch.commande.numero">
 </div>
 
 <table class="table table-striped table-wrap">
@@ -18,20 +18,21 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="cmdsupport in cmdsupports.cmdsupports | orderBy : '-id' | filter : mysearch">
-    <td>{{cmdsupport.envoi.date| date: 'dd/MM/yyyy'}}</td>
-    <td>{{cmdsupport.id}}</td>
-    <td>{{cmdsupport.support.libelle}}</td>
-    <td></td>
-    <td>{{cmdsupport.assemblage.imprimeur.libelle}}</td>
-    <td></td>
-    <td></td>
-    <td></td>
+  <tr ng-repeat="cmdsupport in cmdsupports.cmdsupports">
+    <td>{{::cmdsupport.envoi.date | date: 'dd/MM/yyyy'}}</td>
+    <td>{{::cmdsupport.commande.numero}}</td>
+    <td>{{::cmdsupport.assemblage.support.libelle}}</td>
+    <td>{{::cmdsupport.masque.libelle}}</td>
+    <td>{{::cmdsupport.assemblage.imprimeur.libelle}}</td>
+    <td>{{::cmdsupport.commande.quantite}}</td>
+    <td>{{::cmdsupport.commande.prix}}</td>
+    <td>{{::cmdsupport.commande.datePrevisionMAD | date: 'dd/MM/yyyy'}}</td>
     <td>
       <button class="btn btn-danger btn-xs" ng-click="endpoints.confirmDelete(endpoint)">
         <i class="fa fa-trash-o"></i> Supprimer
       </button>
     </td>
+    <pagination num-pages="noOfPages" current-page="currentPage" class="pagination-small"></pagination>
   </tr>
   </tbody>
 </table>
