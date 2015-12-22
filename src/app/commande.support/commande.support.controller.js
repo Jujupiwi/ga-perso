@@ -5,13 +5,12 @@
     .controller('CmdSupportController', function (CmdSupportService) {
       var vm = this;
 
-      CmdSupportService.list().then(function firstResult(data) {
-        vm.cmdsupports = data;
-        //return CmdSupportService.list();
+      CmdSupportService.list().then(function cmdSupportResult(data) {
+        vm.cmdsupportslist = data;
+        vm.fournisseurlist = CmdSupportService.listFournisseur(data);
       });
-        //.then(function secondResult (data) {
-       // vm.cmdsupports = data;
-     // });
+
+      vm.displayedCollection = [].concat(vm.cmdsupportslist);
 
     })
 })();

@@ -1,0 +1,21 @@
+<span class="pull-left">Affichage des éléments
+    {{totalItemCount === 0 ? totalItemCount : (currentPage - 1) * stItemsByPage + 1}} à
+    {{currentPage * stItemsByPage < totalItemCount ? currentPage * stItemsByPage : totalItemCount}}
+    sur {{totalItemCount}} enregistrements</span>
+<ul class="pagination pull-right" ng-if="numPages && pages.length >= 2">
+    <li ng-class="{disabled: currentPage == 1}">
+        <a ng-click="selectPage(1)"><i class="fa fa-fast-backward"></i></a>
+    </li>
+    <li ng-class="{disabled: currentPage == 1}">
+        <a ng-click="selectPage(currentPage - 1)"><i class="fa fa-backward"></i></a>
+    </li>
+    <li ng-repeat="page in pages" ng-class="{active: page==currentPage}">
+        <a ng-click="selectPage(page)">{{page}}</a>
+    </li>
+    <li ng-class="{disabled: currentPage == numPages}">
+        <a ng-click="selectPage(currentPage + 1)"><i class="fa fa-forward"></i></a>
+    </li>
+    <li ng-class="{disabled: currentPage == numPages}">
+        <a ng-click="selectPage(numPages)"><i class="fa fa-fast-forward"></i></a>
+    </li>
+</ul>

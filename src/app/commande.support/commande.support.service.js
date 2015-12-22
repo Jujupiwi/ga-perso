@@ -2,11 +2,11 @@
 
 (function () {
 
-  angular.module('ga-cmdsupport').factory('CmdSupportService', function (Restangular, $q, $timeout) {
+  angular.module('ga-cmdsupport').factory('CmdSupportService', function (Restangular, $q, _) {
     var cmdsupports = Restangular.all('cmdsupports');
     return {
       list: list,
-      listFirst: listFirst,
+      listFournisseur: listFournisseur,
       one: one
     };
 
@@ -14,8 +14,9 @@
       return cmdsupports.getList();
     }
 
-    function listFirst() {
-      return cmdsupports.customGETLIST('listfirst');
+    function listFournisseur(cmdSupportList) {
+      var labels = _.map(cmdSupportList, 'fournisseur');
+      return _.uniq(labels);
     }
 
     function one(id) {

@@ -1,74 +1,77 @@
-<form>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="fournisseur">Fournisseur</label>
-                <select id="fournisseur" class="form-control" ng-model="fournisseur">
-                    <option>Tous</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="groupeEntite">Groupe Entité</label>
-                <select id="groupeEntite" class="form-control">
-                    <option>Tous</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="entite">Entité</label>
-                <select id="entite" class="form-control">
-                    <option>Tous</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group checkbox">
-                <label class="checkbox-inline" for="inactif">
-                <input type="checkbox" id="inactif" value="option1"> Voir les marchés inactifs</label>
-            </div>
-        </div>
+<div st-table="displayedCollection" st-safe-src="marches.marcheslist" >
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="fournisseur" class="col-sm-1 control-label">Fournisseur</label>
+      <div class="col-md-2">
+        <select class="form-control" id="fournisseur" ga-search="fournisseur.libelle">
+          <option value="">-- Tous --</option>
+          <option ng-repeat="fournisseur in marches.fournisseurlist" ng-value="fournisseur">{{fournisseur}}</option>
+        </select>
+      </div>
+      <label for="groupe" class="col-sm-1 control-label">Groupe entité</label>
+      <div class="col-md-2">
+        <select class="form-control" id="groupe" ga-search="groupe.libelle">
+          <option value="">-- Tous --</option>
+          <option ng-repeat="groupe in marches.groupelist" ng-value="groupe">{{groupe}}</option>
+        </select>
+      </div>
+      <label for="entite" class="col-sm-1 control-label">Entité</label>
+      <div class="col-md-2">
+        <select class="form-control" id="entite" ga-search="entite.libelle">
+          <option value="">-- Toutes --</option>
+          <option ng-repeat="entite in marches.entitelist track by entite" ng-value="entite">{{entite}}</option>
+        </select>
+      </div>
+      <div class="col-md-2 checkbox">
+        <label>
+          <input type="checkbox" ng-model="marches.val" ng-click="marches.inactifs(marches.val)"> Voir les marchés inactifs
+        </label>
+      </div>
     </div>
-</form>
-<div>
-    <table class="table table-striped table-wrap">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Date début</th>
-            <th>Date fin</th>
-            <th>Groupe entité</th>
-            <th>entité</th>
-            <th>Fournisseur</th>
-            <th>Caractéristiques</th>
-            <th>Volume init</th>
-            <th>Prix</th>
-            <th>%Cmde</th>
-            <th>Suppr</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="marche in marches.marches track by $index">
-            <td>{{marche.nom}}</td>
-            <td>{{marche.dateDebut  | date: 'dd/MM/yyyy'}}</td>
-            <td>{{marche.dateFin  | date: 'dd/MM/yyyy'}}</td>
-            <td>{{marche.groupe.libelle}}</td>
-            <td>{{marche.entite.libelle}}</td>
-            <td>{{marche.fournisseur.libelle}}</td>
-            <td><span ng-repeat="carac in marche.listeCaracteristique track by $index">{{carac.libelle }},</span></td>
-            <td>{{marche.quantite}}</td>
-            <td>{{marche.prix}}</td>
-            <td>{{marche.prctCmde}}</td>
-            <td>
-                <button class="btn btn-danger btn-xs" ng-click="endpoints.confirmDelete(endpoint)">
-                    <i class="fa fa-trash-o"></i> Supprimer
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+  </form>
+  <table class="table table-striped table-wrap table-bdf">
+    <thead>
+    <tr>
+      <th></th>
+      <th st-sort="nom">Nom</th>
+      <th st-sort="dateDebut">Date début</th>
+      <th st-sort="dateFin">Date fin</th>
+      <th st-sort="groupe.libelle">Groupe entité</th>
+      <th st-sort="entite.libelle">Entité</th>
+      <th st-sort="fournisseur.libelle">Fournisseur</th>
+      <th>Caractéristiques</th>
+      <th st-sort="quantite">Volume init</th>
+      <th st-sort="prix">Prix</th>
+      <th>Suppr</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="marche in displayedCollection track by $index">
+      <td><i ng-class="{'fa fa-close':marche.etat==1, '':marche.etat!=1}"></i></td>
+      <td><a ui-sref="main.marche.edit({id: marche.id})">{{marche.nom}}</a></td>
+      <td>{{marche.dateDebut  | date: 'dd/MM/yyyy'}}</td>
+      <td>{{marche.dateFin  | date: 'dd/MM/yyyy'}}</td>
+      <td>{{marche.groupe.libelle}}</td>
+      <td>{{marche.entite.libelle}}</td>
+      <td>{{marche.fournisseur.libelle}}</td>
+      <td><span ng-repeat="carac in marche.listeCaracteristique track by $index">{{carac.libelle}},</span></td>
+      <td>{{marche.quantite}}</td>
+      <td>{{marche.prix}}</td>
+      <td>
+        <button class="btn btn-danger btn-xs" ng-click="endpoints.confirmDelete(endpoint)">
+          <i class="fa fa-trash-o"></i> Supprimer
+        </button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+       	<td colspan="11">
+       	<div st-pagination="" st-items-by-page="15"  st-displayed-pages="5"></div>
+       	</td>
+       	</tr>
+    </tfoot>
+  </table>
 
   <div class="form-group">
     <div class="col-lg-12">

@@ -12,7 +12,6 @@
     function list() {
       var deferred = $q.defer();
       params.getList().then(function (data) {
-        console.log(data);
         $timeout(function () {
           deferred.resolve(data);
         }, 500);

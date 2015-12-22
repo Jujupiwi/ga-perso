@@ -1,8 +1,9 @@
-/* global malarkey:false, moment:false */
+/* global _:false */
 (function() {
   'use strict';
 
   angular
-    .module('ga');
+    .module('ga')
+    .constant('_', _);
 
 })();
