@@ -1,0 +1,54 @@
+<div st-table="displayedCollection" st-safe-src="livpapeteries.livpapeterieslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherche</legend>
+          <div class="form-group">
+            <label for="dateinf" class="col-sm-2 control-label">Date début</label>
+            <div class="col-sm-2">
+              <input type="date" id="dateinf" class="form-control" ng-model="search.date">
+            </div>
+            <label for="datesup" class="col-sm-1 control-label">Date fin</label>
+            <div class="col-sm-2">
+              <input type="date" id="datesup" class="form-control" ng-model="search.date2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="marche" class="col-sm-2 control-label">Ref Marché</label>
+            <div class="col-md-2">
+              <select class="form-control" id="marche" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+            <label for="fournisseur" class="col-sm-1 control-label">Fournisseur</label>
+            <div class="col-md-2">
+              <select class="form-control" id="fournisseur" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+            <label for="support" class="col-sm-1 control-label">Support</label>
+            <div class="col-md-2">
+              <select class="form-control" id="support" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Actions</legend>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Exporter</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

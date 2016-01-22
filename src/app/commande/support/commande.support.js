@@ -6,11 +6,11 @@
       url: '/cmdsupports',
       data: {
         breadcrumb: ['main.home'],
-        title: 'Commande support'
+        title: 'Liste des commandes de support'
       },
       views: {
         'content@layout': {
-          templateUrl: 'app/commande.support/commande.support.html',
+          templateUrl: 'app/commande/support/commande.support.html',
           controller : 'CmdSupportController as cmdsupports'
         }
       }

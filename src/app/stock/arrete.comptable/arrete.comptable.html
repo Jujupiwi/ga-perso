@@ -1,0 +1,63 @@
+<div st-table="displayedCollection" st-safe-src="livpapeteries.livpapeterieslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherches</legend>
+          <div class="form-group">
+            <label for="fournisseur" class="col-sm-2 control-label">Année - Mois - Etat de l'arrêté comptable</label>
+            <div class="col-md-2">
+              <select class="form-control" id="fournisseur" ga-search="commande">
+                <option value=""></option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Liste</legend>
+        <table class="table table-striped table-wrap table-bdf">
+          <thead>
+          <tr>
+            <th st-sort="dateMad">Code support</th>
+            <th st-sort="numCommande">N°Lot</th>
+            <th st-sort="support">Qté MAD</th>
+            <th st-sort="numBL">Ajustement MAD</th>
+            <th st-sort="numBL">Conso perso SPI</th>
+            <th st-sort="numBL">Conso qualité SPI</th>
+            <th st-sort="numBL">Conso autres SPI</th>
+            <th st-sort="numBL">Ajustement conso perso</th>
+            <th st-sort="numBL">Ajustement conso qualité</th>
+            <th st-sort="numBL">Ajustement conso autres</th>
+            <th st-sort="numBL">Stock arrêté comptable SPI</th>
+            <th st-sort="numBL">Stock arrêté comptable calculé</th>
+            <th st-sort="numBL">Ecart</th>
+            <th st-sort="numBL">Commentaire</th>
+            <th st-sort="numBL">Ajust.</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="livpapeterie in displayedCollection">
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+             	<td colspan="9">
+             	<div st-pagination="" st-items-by-page="12"  st-displayed-pages="7"></div>
+             	</td>
+             	</tr>
+          </tfoot>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+</div>

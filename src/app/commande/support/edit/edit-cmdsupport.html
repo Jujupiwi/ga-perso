@@ -1,0 +1,185 @@
+<div class="container">
+  <form class="form-horizontal" name="marcheForm">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Nouvelle commande</legend>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Date de commande</label>
+              <label class="input col-sm-4"
+                     ng-class="{'state-error': marcheForm.dateDebut.$dirty && marcheForm.dateDebut.$invalid}">
+                <input type="date" name="dateDebut" class="form-control" placeholder="DD/MM/YYYY" required
+                       ng-model="editMarche.marche.dateDebut"/>
+
+                <div class="note note-error" ng-if="marcheForm.dateDebut.$dirty" ng-messages="marcheForm.dateDebut.$error">
+                  <div ng-message="required">Date de début obligatoire</div>
+                </div>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="numCommande" class="col-sm-3 control-label">N° commande</label>
+              <div class="col-sm-4">
+                <input type="text" required class="form-control" placeholder="N° commande" disabled id="numCommande" ng-model="editMarche.marche.prix">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fournisseur" class="col-sm-3 control-label">Marché</label>
+              <div class="col-md-4">
+                <select class="form-control"  id="fournisseur" ng-model="editMarche.marche.fournisseur.id"
+                        ng-options="obj.id as obj.libelle for obj in editMarche.allfournisseurlist">
+                  <option value="">-- Tous --</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="groupe" class="col-sm-3 control-label">Support</label>
+              <div class="col-md-4">
+                <select class="form-control"  id="groupe" ng-model="editMarche.marche.groupe.id"
+                        ng-options="obj.id as obj.libelle for obj in editMarche.allgroupelist">
+                  <option value="">-- Tous --</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="entite" class="col-sm-3 control-label">Masque</label>
+              <div class="col-md-4">
+                <select class="form-control" id="entite" ng-model="editMarche.marche.entite.libelle">
+                  <option value="">-- Tous --</option>
+                  <option ng-repeat="entite in editMarche.allentitelist" ng-value="entite.libelle">{{entite.libelle}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="entite" class="col-sm-3 control-label">Encarteur</label>
+              <div class="col-md-4">
+                <select class="form-control" id="entite" ng-model="editMarche.marche.entite.libelle">
+                  <option value="">-- Tous --</option>
+                  <option ng-repeat="entite in editMarche.allentitelist" ng-value="entite.libelle">{{entite.libelle}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="entite" class="col-sm-3 control-label">Imprimeur</label>
+              <div class="col-md-4">
+                <select class="form-control" id="entite" ng-model="editMarche.marche.entite.libelle">
+                  <option value="">-- Tous --</option>
+                  <option ng-repeat="entite in editMarche.allentitelist" ng-value="entite.libelle">{{entite.libelle}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantite" class="col-sm-3 control-label">Quantité</label>
+              <div class="col-sm-4">
+                <input type="text" required class="form-control" id="quantite" placeholder="Quantite" ng-model="editMarche.marche.quantite">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="prixUnitaire" class="col-sm-3 control-label">Prix unitaire</label>
+              <div class="col-sm-4">
+                <input type="text" required class="form-control" id="prixUnitaire" placeholder="Prix unitaire" ng-model="editMarche.marche.quantite">
+              </div>
+              <div class="col-md-3 checkbox">
+                <label>
+                  <input type="checkbox" ng-checked="editMarche.marche.etat==1"> Prix à définir
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-4 checkbox">
+                <label>
+                  <input type="checkbox" ng-checked="editMarche.marche.etat==1"> Solder
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-2 checkbox">
+                <label>
+                  <input type="checkbox" ng-checked="editMarche.marche.etat==1"> Refacturer
+                </label>
+              </div>
+              <label for="entiteRef" class="col-sm-2 control-label">Entite</label>
+              <div class="col-md-4">
+                <select disabled class="form-control" id="entiteRef" ng-model="editMarche.marche.entite.libelle">
+                  <option value="">-- Toutes --</option>
+                  <option ng-repeat="entite in editMarche.allentitelist" ng-value="entite.libelle">{{entite.libelle}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="com" class="col-sm-2 control-label">Commentaires</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="com" placeholder="Commentaires" ng-model="editMarche.marche.quantite"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fondeur" class="col-sm-2 control-label">Fondeur</label>
+                <div class="col-sm-4">
+                  <input type="text" disabled class="form-control" id="fondeur" placeholder="Fondeur" ng-model="editMarche.marche.quantite">
+                </div>
+                <label for="composant" class="col-sm-2 control-label">Composant</label>
+                <div class="col-sm-4">
+                  <input type="text" disabled class="form-control" id="composant" placeholder="Composant" ng-model="editMarche.marche.quantite">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="refBat" class="col-sm-2 control-label">Ref BAT</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="refBat" placeholder="Ref BAT" ng-model="editMarche.marche.quantite">
+                </div>
+              </div>
+              <div class="well bs-component" style="margin-top: 100px">
+                <fieldset>
+                  <legend>Mise à disposition</legend>
+                  <div class="row">
+                    <label for="dateMAD" class="col-sm-4 control-label">Date MAD prévisionnelle</label>
+                    <div class="col-sm-4">
+                      <input type="date" class="form-control" id="dateMAD" placeholder="Date MAD" ng-model="editMarche.marche.quantite">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <label for="lieuMAD" class="col-sm-4 control-label">Lieu MAD</label>
+                    <div class="col-md-4">
+                      <select class="form-control" id="lieuMAD" ng-model="editMarche.marche.entite.libelle">
+                        <option value="">-- Tous --</option>
+                        <option ng-repeat="entite in editMarche.allentitelist" ng-value="entite.libelle">{{entite.libelle}}</option>
+                      </select>
+                    </div>
+                    <button type="button" ui-sref="main.marche" class="btn btn-default">Ajouter</button>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Liste des commandes à ajouter</legend>
+        <div class="form-group">
+
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Actions</legend>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <button ng-click="editMarche.submit()" type="submit" class="btn btn-primary">Valider</button>
+            <button type="button" ui-sref="main.marche" class="btn btn-warning">Annuler</button>
+            <button class="btn btn-danger" type="reset">Grille tarifaire</button>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

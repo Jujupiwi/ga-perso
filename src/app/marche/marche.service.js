@@ -10,7 +10,11 @@
       listFournisseur: listFournisseur,
       listGroupe: listGroupe,
       listEntite: listEntite,
-      one: one
+      listAllFournisseurs : listAllFournisseurs,
+      listAllEntites : listAllEntites,
+      listAllGroupes : listAllGroupes,
+      one: one,
+      create : create
     };
 
     function list() {
@@ -24,6 +28,30 @@
     function listActifs() {
       var deferred = $q.defer();
       marches.customGETLIST('listActifs').then(function (data) {
+        deferred.resolve(data);
+      });
+      return deferred.promise;
+    }
+
+    function listAllFournisseurs() {
+      var deferred = $q.defer();
+      marches.customGETLIST('listAllFournisseurs').then(function (data) {
+        deferred.resolve(data);
+      });
+      return deferred.promise;
+    }
+
+    function listAllEntites() {
+      var deferred = $q.defer();
+      marches.customGETLIST('listAllEntites').then(function (data) {
+        deferred.resolve(data);
+      });
+      return deferred.promise;
+    }
+
+    function listAllGroupes() {
+      var deferred = $q.defer();
+      marches.customGETLIST('listAllGroupes').then(function (data) {
         deferred.resolve(data);
       });
       return deferred.promise;
@@ -46,6 +74,10 @@
 
     function one(id) {
       return marches.get(id);
+    }
+
+    function create(marche) {
+      return marches.post(marche);
     }
   });
 

@@ -1,0 +1,107 @@
+<div st-table="displayedCollection" st-safe-src="madpapeteries.madpapeterieslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherches</legend>
+          <div class="form-group">
+            <label for="dateinf" class="col-sm-2 control-label">Date MAD entre le</label>
+            <div class="col-sm-2">
+              <input type="date" id="dateinf" class="form-control" ng-model="search.date">
+            </div>
+            <label for="datesup" class="col-sm-1 control-label">et le</label>
+            <div class="col-sm-2">
+              <input type="date" id="datesup" class="form-control" ng-model="search.date2">
+            </div>
+            <div class="col-md-offset-1 col-md-2 checkbox">
+              <label>
+                <input type="checkbox" ng-click=""> Voir les factures completes
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="typeMP" class="col-sm-2 control-label">Type de MP</label>
+            <div class="col-md-2">
+              <select class="form-control" id="typeMP" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+            <label for="commande" class="col-sm-1 control-label">Commande</label>
+            <div class="col-sm-2">
+              <input type="text" id="commande" class="form-control" ga-search="numeroBL">
+            </div>
+            <label for="fournisseur" class="col-sm-1 control-label">Fournisseur</label>
+            <div class="col-md-2">
+              <select class="form-control" id="fournisseur" ga-search="fournisseur">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in cmdsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numBLMad" class="col-sm-2 control-label">Num BL MAD</label>
+            <div class="col-sm-2">
+              <input type="text" id="numBLMad" class="form-control" ga-search="numeroBL">
+            </div>
+            <label for="numLotSPI" class="col-sm-1 control-label">Num Lot SPI</label>
+            <div class="col-sm-2">
+              <input type="text" id="numLotSPI" class="form-control" ga-search="numeroBL">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Détail stock</legend>
+        <table class="table table-striped table-wrap table-bdf">
+          <thead>
+          <tr>
+            <th st-sort="dateMad">Complete</th>
+            <th st-sort="numCommande">Date MAD</th>
+            <th st-sort="support">N°BL</th>
+            <th st-sort="numBL">N°Lot SPI</th>
+            <th st-sort="qteMAD">N°Commande</th>
+            <th st-sort="resteALivrer">Support</th>
+            <th st-sort="lieuMAD">Fournisseur</th>
+            <th st-sort="fournisseur">Total estimé</th>
+            <th st-sort="commentaire">Total courant</th>
+            <th st-sort="commentaire">Entité refacturée</th>
+            <th>Edit</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="madsupport in displayedCollection">
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>{{::madsupport.date}}</td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-edit"></i> Modifier
+              </button>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+             	<td colspan="9">
+             	<div st-pagination="" st-items-by-page="12"  st-displayed-pages="7"></div>
+             	</td>
+             	</tr>
+          </tfoot>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+</div>

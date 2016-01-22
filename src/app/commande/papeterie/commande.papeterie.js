@@ -3,14 +3,15 @@
 (function () {
   angular.module('ga-cmdpapeterie', ['ga-core']).config(function ($stateProvider) {
     $stateProvider.state('main.cmdpapeterie', {
-      url: '/cmdpapeterie',
+      url: '/cmdpapeteries',
       data: {
         breadcrumb: ['main.home'],
-        title: 'Commande papeterie'
+        title: 'Liste des commandes de papeterie'
       },
       views: {
         'content@layout': {
-          templateUrl: 'app/commande.papeterie/commande.papeterie.html'
+          templateUrl: 'app/commande/papeterie/commande.papeterie.html',
+          controller : 'CmdPapeterieController as cmdpapeteries'
         }
       }
     });

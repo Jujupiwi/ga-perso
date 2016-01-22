@@ -1,0 +1,75 @@
+<div st-table="displayedCollection" st-safe-src="consopaps.consopapslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherches</legend>
+          <div class="form-group">
+            <label for="fournisseur" class="col-sm-2 control-label">Type de fourniture</label>
+            <div class="col-md-2">
+              <select class="form-control" id="fournisseur" ga-search="type">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="type in consopaps.typelist" ng-model="type" ng-value="type">{{type}}</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-8">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Consommation</legend>
+        <table class="table table-striped table-wrap table-bdf">
+          <thead>
+          <tr>
+            <th st-sort="codePapeterie">Papeterie</th>
+            <th st-sort="quantite">Consommation / mois</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="consopap in displayedCollection">
+            <td>{{::consopap.codePapeterie}} -- {{::consopap.libellePapeterie}}</td>
+            <td><input type="text" id="numero" value="{{::consopap.quantite}}"></td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+             	<td colspan="9">
+             	<div st-pagination="" st-items-by-page="12"  st-displayed-pages="7"></div>
+             	</td>
+             	</tr>
+          </tfoot>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Modification groupée</legend>
+        <div class="form-group">
+          <label for="maj" class="col-sm-4 control-label">Mettre à jour la consommation mensuelle de toutes les papeteries</label>
+          <div class="col-sm-2">
+            <input type="text" id="maj" class="form-control" ga-search="numeroBL">
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-primary" ui-sref="main.madsupport.edit" type="button">Appliquer</button>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Actions</legend>
+        <div class="form-group">
+            <button class="btn btn-primary" ui-sref="main.madsupport.edit" type="button">Valider</button>
+            <button type="button" ui-sref="main.stockpap" class="btn btn-warning">Annuler</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div st-table="displayedCollection" st-safe-src="livpapeteries.livpapeterieslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherches</legend>
+          <div class="form-group">
+            <label for="dateinf" class="col-sm-2 control-label">Date livraison entre le</label>
+            <div class="col-sm-2">
+              <input type="date" id="dateinf" class="form-control" ng-model="search.date">
+            </div>
+            <label for="datesup" class="col-sm-1 control-label">et le</label>
+            <div class="col-sm-2">
+              <input type="date" id="datesup" class="form-control" ng-model="search.date2">
+            </div>
+            <div class="col-md-offset-1 col-md-3 checkbox">
+              <label>
+                <input type="checkbox" ng-click=""> Voir les livraisons réalisées
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="commande" class="col-sm-2 control-label">Site production</label>
+            <div class="col-md-2">
+              <select class="form-control" id="commande" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+            <label for="numLivraison" class="col-sm-1 control-label">Num Livraison</label>
+            <div class="col-sm-2">
+              <input type="text" id="numLivraison" class="form-control" ga-search="numeroBL">
+            </div>
+            <div class="col-md-offset-1 col-md-2 checkbox">
+              <label>
+                <input type="checkbox" ng-click=""> Voir les livraisons supprimées
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Liste</legend>
+        <table class="table table-striped table-wrap table-bdf">
+          <thead>
+          <tr>
+            <th st-sort="dateMad">Statut</th>
+            <th st-sort="numCommande">N°Livraison</th>
+            <th st-sort="support">Lieu MAD</th>
+            <th st-sort="numBL">Site production</th>
+            <th st-sort="qteMAD">Date demande</th>
+            <th st-sort="resteALivrer">Date livraison</th>
+            <th st-sort="lieuMAD">Commentaire</th>
+            <th st-sort="fournisseur">Type</th>
+            <th st-sort="commentaire">Ref Cedicam</th>
+            <th st-sort="commentaire">Quantité</th>
+            <th>Modif</th>
+            <th>Suppr</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="livpapeterie in displayedCollection">
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-edit"></i> Modifier
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-trash-o"></i> Supprimer
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-trash-o"></i> Supprimer
+              </button>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+             	<td colspan="9">
+             	<div st-pagination="" st-items-by-page="12"  st-displayed-pages="7"></div>
+             	</td>
+             	</tr>
+          </tfoot>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Actions</legend>
+        <div class="form-group">
+            <button class="btn btn-primary" ui-sref="main.madsupport.edit" type="button">Nouvelle demande</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,11 @@ var baseUri = 'http://localhost:8080';
 var proxyRoutes = [
     '/parametres',
     '/cmdsupports',
-    '/marches'
+    '/cmdpapeteries',
+    '/marches',
+    '/consopapeteries',
+    '/paramalerte',
+  '/stockpaps'
 ];
 
 var requireTrailingSlash = proxyRoutes.filter(function (r) {

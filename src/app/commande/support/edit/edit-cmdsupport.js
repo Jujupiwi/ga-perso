@@ -6,11 +6,11 @@
             url: '/:id',
             data: {
                 breadcrumb: ['main.home', 'main.cmdsupport'],
-                title: 'Édition d\'une commande support'
+                title: 'Saisie d\'une commande de support'
             },
             views: {
                 'content@layout': {
-                    templateUrl: 'app/commande.support/edit/edit-cmdsupport.html',
+                    templateUrl: 'app/commande/support/edit/edit-cmdsupport.html',
                     controller: 'EditCmdSupportController as editCmdSupport'
                 }
             },

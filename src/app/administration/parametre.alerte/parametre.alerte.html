@@ -1,0 +1,45 @@
+<form class="form-horizontal">
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Filtre</legend>
+        <div class="form-group">
+          <label for="support" class="col-sm-2 control-label">Support</label>
+          <div class="col-md-3">
+            <select class="form-control" id="support" ng-options="support as support.code + ' - ' + support.libelle for support in paramalertes.supportslist"
+                    ng-model="item"></select>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</form>
+<div class="col-md-12">
+  <div class="well bs-component">
+    <fieldset>
+      <legend>Parametres d'alerte</legend>
+      <div class="form-group">
+        <label for="stockUsine" class="col-sm-2 control-label">Seuil de stock usine</label>
+        <div class="col-md-2">
+          <input type="text" id="stockUsine" class="form-control" ng-model="item.seuilStockUsine">
+        </div>
+        <label for="stockCourant" class="col-sm-2 control-label" >Seuil de stock courant</label>
+        <div class="col-sm-2">
+          <input type="text" id="stockCourant" class="form-control" ng-model="item.seuilStockCourant">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="well bs-component">
+    <fieldset>
+      <legend>Actions</legend>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Valider</button>
+        <button type="button" ui-sref="main.home" class="btn btn-warning">Annuler</button>
+        <button type="button" ui-sref="main.marche" class="btn btn-danger">Supprimer l'exception</button>
+      </div>
+    </fieldset>
+  </div>
+</div>

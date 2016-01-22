@@ -24,5 +24,26 @@
 
 @media (min-width: 1200px){
 .container {
-  width: 1500px;
+  width: 1400px;
 }}
+
+legend {
+  margin-bottom: 10px;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  padding: 4px;
+}
+
+/**/
+/* error state */
+/**/
+.state-error input,
+.state-error select,
+.state-error textarea,
+.radio.state-error i,
+.checkbox.state-error i,
+.toggle.state-error i {
+  background: #fff0f0;
+  border-color: #A90329; }
+

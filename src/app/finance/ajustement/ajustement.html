@@ -1,0 +1,88 @@
+<div st-table="displayedCollection" st-safe-src="livpapeteries.livpapeterieslist" >
+  <form class="form-horizontal">
+    <div class="col-md-12">
+      <div class="well bs-component">
+        <fieldset>
+          <legend>Filtres de recherches</legend>
+          <div class="form-group">
+            <label for="fournisseur" class="col-sm-2 control-label">Fournisseur</label>
+            <div class="col-md-2">
+              <select class="form-control" id="fournisseur" ga-search="commande">
+                <option value="">-- Tous --</option>
+                <option ng-repeat="fournisseur in madsupports.fournisseurlist" ng-model="fournisseur" ng-value="fournisseur">{{fournisseur}}</option>
+              </select>
+            </div>
+            <label for="annee" class="col-sm-1 control-label">Année</label>
+            <div class="col-sm-2">
+              <input type="text" id="annee" class="form-control" ga-search="numeroBL">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Avoir global</legend>
+        <table class="table table-striped table-wrap table-bdf">
+          <thead>
+          <tr>
+            <th st-sort="dateMad">Date</th>
+            <th st-sort="numCommande">Fournisseur</th>
+            <th st-sort="support">Type ajustement</th>
+            <th st-sort="numBL">Ref Cedicam</th>
+            <th st-sort="qteMAD">Ref Fournisseur</th>
+            <th st-sort="resteALivrer">Montant</th>
+            <th st-sort="lieuMAD">Commentaire</th>
+            <th>Modif</th>
+            <th>Suppr</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="livpapeterie in displayedCollection">
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>{{::livpapeterie.date}}</td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-edit"></i> Modifier
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-xs">
+                <i class="fa fa-trash-o"></i> Supprimer
+              </button>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+             	<td colspan="9">
+             	<div st-pagination="" st-items-by-page="12"  st-displayed-pages="7"></div>
+             	</td>
+             	</tr>
+          </tfoot>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="well bs-component">
+      <fieldset>
+        <legend>Actions</legend>
+        <div class="form-group">
+            <button class="btn btn-primary" ui-sref="main.madsupport.edit" type="button">Nouvel avoir</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

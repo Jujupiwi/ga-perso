@@ -6,7 +6,7 @@
       url: '/marches',
       data: {
         breadcrumb: ['main.home'],
-        title: 'Marché'
+        title: 'Liste des marchés'
       },
       views: {
         'content@layout': {

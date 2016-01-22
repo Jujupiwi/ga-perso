@@ -10,7 +10,7 @@
       },
       views: {
         'content@layout': {
-          templateUrl: 'app/administration.parametrage/administration.parametrage.html',
+          templateUrl: 'app/administration/parametrage/parametrage.html',
           controller : 'ParamController as param'
         }
       }
